@@ -10,5 +10,9 @@ Bugs:
 1 - Incoming missiles are not drawn therfore  not visible yet can still damage your surround
 2 - Quit the program is not working, just can be killed by the task manager (Fixed)
 3 - If you loose all the houses it stays in a black screen. (Fixed)
-4 - Doesn't show properly the leader score (a Json loaded which eventually would be changing)
+4 - Doesn't show properly the leader score (a Json loaded which eventually would be changing to a DB)
 5 - Doesn't show the top 5 (Fixed)
+
+TBD:
+1 - Update json once its gameover
+2 - add more dependency level to the config file
