@@ -69,10 +69,22 @@ class McGame():
 
         #Game Over - All cities destroyed
     def game_over(self, screen):
+            pause = 0
+            #Message
             game_over_msg = game_font.render("YOUR CITIES ARE DESTROYED!", False, INTERFACE_SEC)
             score_msg = game_font.render("SCORED: {}".format(self.player_score), False, INTERFACE_SEC)
+            #Position of the message
             game_over_msg_pos = (SCREENSIZE[0] // 2 - (game_over_msg.get_width() // 2), SCREENSIZE[1] // 2 - (game_over_msg.get_height() // 2))
             score_msg_pos = (SCREENSIZE[0] // 2 - (score_msg.get_width() // 2), SCREENSIZE[1] // 2 - (score_msg.get_height() // 2) + game_over_msg.get_height())
+            screen.blit(game_over_msg, game_over_msg_pos)
+            screen.blit(score_msg, score_msg_pos)
+            pygame.display.update()
+            while pause == 0:
+                for event in pygame.event.get():
+                    if event.type == KEYDOWN:
+                        if event.key == K_SPACE:
+                            pause = -1
+                            exit()
 
     def get_target(self):
             return(random.randint(0, SCREENSIZE[0]), self.ground_level)

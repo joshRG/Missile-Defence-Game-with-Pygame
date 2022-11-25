@@ -5,7 +5,7 @@ class City(object):
     def __init__(self, number, max_cities):
         self.pos = (number * SCREENSIZE[0] // (max_cities + 1), SCREENSIZE[1] - GROUND_LEVEL)
         self.color = CITY
-        self.size = 10
+        self.size = 15
         self.destroyed = False
 
     def draw(self, screen):
