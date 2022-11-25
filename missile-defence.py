@@ -36,11 +36,12 @@ def main():
     #Active cities
     city_list = []
 
-    for counter in range(1, 8):
-        if counter == 8 // 2:
+    for counter in range(1, NUM_CITIES):
+        """This Loop is in charge of set the cities ammounts drawed in the game, always 2 less than setted in the config.py file"""
+        if counter == NUM_CITIES // 2:
             pass
         else: 
-            city_list.append(City(counter, 7))
+            city_list.append(City(counter, (NUM_CITIES - 1)))
         
     #Instantiate a Defence class
     defence = Defence()
@@ -63,8 +64,7 @@ def main():
                 if event.button == 3:
                     pass
             if event.type == KEYDOWN:
-                if event.type == K_ESCAPE:
-                    validate = False
+                if event.key == K_ESCAPE:
                     exit_game(screen)
                 if event.key == K_SPACE:
                     defence.shoot(missile_list)

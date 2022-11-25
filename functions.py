@@ -60,7 +60,7 @@ def pause_game(screen):
             if event.type == KEYDOWN:
                 if event.key == K_p:
                     pause = -1
-    
+
 def distance(p,q):
     return math.sqrt((p[0] - q[0]) ** 2 + (p[1] - q[1]) ** 2 )
 
@@ -144,21 +144,23 @@ def show_high_scores(screen, high_scores):
         score_text_pos = (SCREENSIZE[0] // 2 - (high_score_heading.get_width() // 2),
                             SCREENSIZE[1] // 2 - (text_height * text_y_pos_multiplier))
         screen.blit(score_text, score_text_pos)
-        text_y_pos_multiplier -= 1
+        text_y_pos_multiplier -= 2
+        if pos == " 5":
+            break
+        # print(True if pos == " 5" else False)     #testing the type and the condition to evaluate in the previous if stated
 
-        #Generating instruction msg, position and blit
-        text_y_pos_multiplier -= 1 
-        high_score_msg = game_font.render("PRESS 'SPACE' TO CONTINUE", False, INTERFACE_SEC)
-        high_score_msg_pos = (SCREENSIZE[0] // 2 - (high_score_msg.get_width() // 2),
-                            SCREENSIZE[1] // 2 - (text_height * text_y_pos_multiplier))
-        
-        screen.blit(high_score_msg, high_score_msg_pos)
+    #Generating instruction msg, position and blit
+    high_score_msg = game_font.render("PRESS 'SPACE' TO CONTINUE", False, INTERFACE_SEC)
+    high_score_msg_pos = (SCREENSIZE[0] // 2 - (high_score_msg.get_width() // 2),
+                        SCREENSIZE[1] // 2 - (text_height * text_y_pos_multiplier))
+    
+    screen.blit(high_score_msg, high_score_msg_pos)
 
-        #Update the display
-        pygame.display.update()
-        #Infinite loop to liste for continue
-        while pause == 0:
-            for event in pygame.event.get():
-                if event.type == KEYDOWN:
-                    if event.key == K_SPACE:
-                        pause -= 1
+    #Update the display
+    pygame.display.update()
+    #Infinite loop to liste for continue
+    while pause == 0:
+        for event in pygame.event.get():
+            if event.type == KEYDOWN:
+                if event.key == K_SPACE:
+                    pause -= 1

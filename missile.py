@@ -42,9 +42,9 @@ class Missile():
                         self.origin_pos[1] + int(self.travel_dist * math.cos(self.angle) * self.incoming))
             self.travel_dist += self.speed
             #when reaching the target point : detonate!
-            if self.travel_dist > self.dist_to_target and not self.detonated:
-                self.explode(explosion_list)
-                #function to explosion itself
+        if self.travel_dist > self.dist_to_target and not self.detonated:
+            self.explode(explosion_list)
+            #function to explosion itself
     def explode(self, explosion_list):
         self.detonated = True
         if self.incoming !=1:
